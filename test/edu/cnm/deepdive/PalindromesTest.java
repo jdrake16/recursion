@@ -29,4 +29,13 @@ class PalindromesTest {
     assertTrue(Palindromes.testRecursive("x"));
     assertTrue(Palindromes.testRecursive(""));
   }
+
+  @Test
+  void testDenormalized() {
+    assertTrue(Palindromes.testDenormalized("Radar"));
+    assertTrue(Palindromes.testDenormalized("A man, a plan, a canal - Panama!"));
+    assertFalse(Palindromes.testDenormalized("A man, a plan, a dam - Hoover!"));
+
+  }
+
 }

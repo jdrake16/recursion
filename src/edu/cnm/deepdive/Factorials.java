@@ -10,27 +10,23 @@ public class Factorials {
    * @throws IllegalArgumentException when n < 0.
    */
   public static BigInteger computeRecursive(int val) throws IllegalArgumentException {
-    BigInteger result;
+    BigInteger result = BigInteger.ONE;
     if (val < 0) {
       throw new IllegalArgumentException();
     }
-    if (val == 0) {
-      result = BigInteger.valueOf(1);
-    } else {
+    if (val > 0) {
       result = BigInteger.valueOf(val).multiply(computeRecursive(val - 1));
     }
     return result;
   }
 
   public static BigInteger computeIterative(int val) throws IllegalArgumentException {
-    BigInteger result;
+    BigInteger result = BigInteger.ONE;
     if (val < 0) {
       throw new IllegalArgumentException();
     }
-    if (val == 0) {
-      result = BigInteger.valueOf(1);
-    } else {
-      result = BigInteger.valueOf(val - 1);
+   for (int i = 1; i <= val; i++) {
+
     }
     return result;
 

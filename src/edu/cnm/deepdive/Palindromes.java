@@ -15,16 +15,10 @@ public class Palindromes {
     return isPalindrome;
   }
 
-  public static boolean testDenormalized(String[] input) {
+  public static boolean testDenormalized(String input) {
+    String normalized = input.replaceAll("[\\w_]+","").toLowerCase();
+    return testRecursive(normalized);
 
-    String normalized = [\t];
-    boolean b;
-    if ((testRecursive(String)
-
-    )) {
-
-  }
-  return testRecursive(normalized);
   }
 
 

@@ -8,6 +8,14 @@ import org.junit.jupiter.api.Test;
 
 class FactorialsTest {
 
+  static final int[] params = {
+      0, 1, 5, 10, 13
+  };
+
+  static final long[] expecteds = {
+      1, 1, 120, 3628800, 6227020800L
+  };
+
   static final long[][] testCases = {
       {0,	1},
       {1,	1},
@@ -16,14 +24,12 @@ class FactorialsTest {
       {13,	6227020800L}
   };
 
-
-
   @Test
   void computeRecursive() {
-    for (long[] testCase : testCases) {
-      int val = (int) testCase[0];
-      BigInteger expected = BigInteger.valueOf(testCase[1]);
-      BigInteger actual = Factorials.computeRecursive(val);
+    for (int i = 0; i < params.length; i++) {
+      int n = params[i];
+      BigInteger expected = BigInteger.valueOf(expecteds[i]);
+      BigInteger actual = Factorials.computeRecursive(n);
       assertEquals(expected, actual);
     }
     assertThrows(IllegalArgumentException.class, () -> Factorials.computeRecursive(-1));
@@ -31,14 +37,19 @@ class FactorialsTest {
 
   @Test
   void computeIterative() {
-    for (long[] testCase : testCases) {
-      int val = (int) testCase[0];
-      BigInteger expected = BigInteger.valueOf(testCase[1]);
-      BigInteger actual = Factorials.computeIterative(val);
+    for (int i = 0; i < params.length; i++) {
+      int n = params[i];
+      BigInteger expected = BigInteger.valueOf(expecteds[i]);
+      BigInteger actual = Factorials.computeIterative(n);
       assertEquals(expected, actual);
     }
-    assertThrows(IllegalArgumentException.class, () -> Factorials.computeRecursive(-1));
+    assertThrows(IllegalArgumentException.class, () -> Factorials.computeIterative(-1));
   }
+
+
+
+
+
 
 }
 
