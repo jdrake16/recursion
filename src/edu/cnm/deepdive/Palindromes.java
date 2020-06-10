@@ -4,8 +4,7 @@ public class Palindromes {
 
   public static boolean testRecursive(String input) {
     boolean isPalindrome = false;
-    if(
-        input.length() <= 1
+    if(input.length() <= 1
       || (input.charAt(0) == input.charAt(input.length() - 1)
             && testRecursive(input.substring(1, input.length() -1 ))
         )
@@ -15,5 +14,19 @@ public class Palindromes {
     }
     return isPalindrome;
   }
+
+  public static boolean testDenormalized(String[] input) {
+
+    String normalized = [\t];
+    boolean b;
+    if ((testRecursive(String)
+
+    )) {
+
+  }
+  return testRecursive(normalized);
+  }
+
+
 
 }

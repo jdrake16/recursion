@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.math.BigInteger;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
+
 
 class FactorialsTest {
 
@@ -16,15 +16,29 @@ class FactorialsTest {
       {13,	6227020800L}
   };
 
+
+
   @Test
   void computeRecursive() {
     for (long[] testCase : testCases) {
-      int n = (int) testCase[0];
-      long expected = testCase[1];
-      BigInteger actual = Factorials.computeRecursive(0);
+      int val = (int) testCase[0];
+      BigInteger expected = BigInteger.valueOf(testCase[1]);
+      BigInteger actual = Factorials.computeRecursive(val);
+      assertEquals(expected, actual);
+    }
+    assertThrows(IllegalArgumentException.class, () -> Factorials.computeRecursive(-1));
+  }
+
+  @Test
+  void computeIterative() {
+    for (long[] testCase : testCases) {
+      int val = (int) testCase[0];
+      BigInteger expected = BigInteger.valueOf(testCase[1]);
+      BigInteger actual = Factorials.computeIterative(val);
       assertEquals(expected, actual);
     }
     assertThrows(IllegalArgumentException.class, () -> Factorials.computeRecursive(-1));
   }
 
 }
+
